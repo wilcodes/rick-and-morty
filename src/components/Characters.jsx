@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Character from "./Character";
-const Characters = () => {
+const Characters = (props) => {
 
     const [characters, setCharacters] = useState([]);
 
@@ -19,6 +19,7 @@ const Characters = () => {
                     gender={character.gender}
                     image={character.image}
                     key={character.id}
+                    mood={props.mood}
                 />
 
             ))}
