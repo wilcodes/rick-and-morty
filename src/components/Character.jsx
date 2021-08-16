@@ -22,7 +22,15 @@ const Character = (props) => {
             <h2 className={titleStyle}>{props.name}</h2>
             <h3 className={subDescriptionStyle}> {props.status}</h3>
             <h3 className={subDescriptionStyle}> {props.gender}</h3>
+           {props.activeFav && 
+           <button 
+            className="toggleMode" 
+            type="button" 
+            onClick={(character) => props.handleClick(props.character)}> 
+                 Favorite ⭐
+           </button>} 
             <img src={props.image} alt={props.name} className={"image"} />
+
         </div>
     )
 

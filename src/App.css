@@ -120,3 +120,11 @@ margin-bottom: 3em;
   opacity: 1;
   transform: scale(1.05);
 }
+
+
+.favoritesWrapper{
+    width: 100%;
+    display: flex;
+    flex-direction: row wrap;
+    margin: 3em;
+}
