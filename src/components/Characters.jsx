@@ -35,10 +35,24 @@ const Characters = (props) => {
         dispatch({ type: "ADD_TO_FAVORITE", payload: favorite })
     }
 
-    const ha
+    const handleSearch = (event) => {
+        setSearch(event.target.value)
+    }
+
+    //const filteredCharacter = characters.filter((character) => {
+    //   return character.name.toLowerCase().includes(search.toLowerCase());
+    // })
+
+    const filteredCharacter = useMemo(() =>
+        characters.filter((character) => {
+            return character.name.toLowerCase().includes(search.toLowerCase())
+        }), [characters, search]
+    )
+
     return (
 
         <div className="Characters" >
+            <input type="text" value={search} onChange={handleSearch} />
             <div className="favoritesWrapper">
                 {favorites.favorites.map(favorite => (
                     <Character
@@ -52,7 +66,11 @@ const Characters = (props) => {
                 ))}
             </div>
 
-            {characters.map((character) => (
+            <div className="searchWrapper">
+
+            </div>
+
+            {filteredCharacter.map((character) => (
                 <Character
                     character={character}
                     name={character.name}
